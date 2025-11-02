@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxeja0273xkff"]
+
+[ext_resource type="Script" uid="uid://8f47nhf40v1" path="res://gen_walls.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://ovpx47jlx30u" path="res://color_bit.gd" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://c4ocgqvic010f" path="res://label.gd" id="3_feb5d"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_feb5d"]
+radius = 10.0
+height = 20.0
+radial_segments = 4
+rings = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_e2o6t"]
+font_size = 81
+
+[node name="Game" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Red" type="RigidBody2D" parent="Node2D"]
+input_pickable = true
+script = ExtResource("1_e2o6t")
+size = null
+bounce_spread = 11.375
+show_debug = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Node2D/Red"]
+mesh = SubResource("SphereMesh_feb5d")
+
+[node name="Walls" type="Node2D" parent="Node2D"]
+script = ExtResource("1_80nbo")
+top_wall = 200.0
+
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
+zoom = Vector2(3.14, 3.14)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 69.0
+offset_right = 88.0
+offset_bottom = 92.0
+label_settings = SubResource("LabelSettings_e2o6t")
+script = ExtResource("3_feb5d")
