@@ -1,0 +1,54 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://njngowuujv01"]
+
+[ext_resource type="FontFile" uid="uid://dge6iy1ca5vtl" path="res://fonts/Pixelify_Sans/static/PixelifySans-SemiBold.ttf" id="1_puy5r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7j51"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puy5r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gow0e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_een4j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qq51f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7j51"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.75, 0.63725, 0.135, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_puy5r"]
+color = Color(0.74902, 0.635294, 0.133333, 1)
+thickness = 4
+vertical = true
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(0.87451, 0.87451, 0.87451, 1)
+Button/constants/outline_size = 15
+Button/font_sizes/font_size = 39
+Button/fonts/font = ExtResource("1_puy5r")
+Button/styles/disabled = SubResource("StyleBoxEmpty_w7j51")
+Button/styles/focus = SubResource("StyleBoxEmpty_puy5r")
+Button/styles/hover = SubResource("StyleBoxEmpty_gow0e")
+Button/styles/normal = SubResource("StyleBoxEmpty_een4j")
+Button/styles/pressed = SubResource("StyleBoxEmpty_qq51f")
+Label/font_sizes/font_size = 29
+Label/fonts/font = ExtResource("1_puy5r")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_w7j51")
+VSeparator/constants/separation = 17
+VSeparator/styles/separator = SubResource("StyleBoxLine_puy5r")

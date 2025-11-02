@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="GnnerericClicker"
 
+[gui]
+
+theme/custom_font="uid://hrmdwybmvhli"
+
 [input]
 
 click={
@@ -35,3 +39,4 @@ click={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+viewport/hdr_2d=true
