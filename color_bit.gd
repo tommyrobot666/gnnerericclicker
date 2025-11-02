@@ -2,23 +2,36 @@
 class_name ColorBit
 extends RigidBody2D
 
-@export var color:CollectedResources.Colors
+const MESH_NODE_NAME := "MeshNode"
+
+@export var color:CollectedResources.Colors:
+	set(x):
+		color = x
+		
+		var mesh_node = get_node_or_null(MESH_NODE_NAME) as MeshInstance2D
+		if mesh_node != null:
+			mesh_node.texture = CollectedResources.color_textures[color]
 @export var size:float = 10
+@export var bounce_force:float = 300
 @export var bounce_spread:float
+@export var gravity:float = 250:
+	set(x):
+		gravity_scale = x
+		gravity = x
 @export var show_debug:bool
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if !event.is_action_pressed("click"):
 		return
 	
-	apply_impulse(Vector2.UP.rotated(randf_range(-TAU*(1/bounce_spread), TAU*(1/bounce_spread))) * 100)
+	apply_impulse(Vector2.UP.rotated(randf_range(-TAU*(1/bounce_spread), TAU*(1/bounce_spread))) * bounce_force)
 	CollectedResources.change_color(color,1)
 	if show_debug:
 		await get_tree().physics_frame
 		print(linear_velocity)
 
 func _ready() -> void:
-	var new_shape:CollisionShape2D = CollisionShape2D.new()
+	var new_shape:CollisionShape2D = CollisionShape2D.new() 
 	new_shape.shape = CircleShape2D.new()
 	new_shape.shape.radius = size
 	add_child(new_shape)
@@ -30,11 +43,15 @@ func _ready() -> void:
 	new_mesh.rings = 9
 	new_mesh.radius = size
 	new_mesh.height = 2*size
+	new_mesh_node.name = MESH_NODE_NAME
 	add_child(new_mesh_node)
 	
 	input_event.connect(_on_input_event)
 	
 	lock_rotation = true
+	
+	color = color
+	gravity = gravity
 
 func _process(delta: float) -> void:
 	if show_debug:
