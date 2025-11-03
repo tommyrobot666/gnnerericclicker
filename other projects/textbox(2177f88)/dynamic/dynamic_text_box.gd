@@ -49,9 +49,9 @@ func _notification(what: int) -> void:
 							char.effects[i].call(char,i,last_delta)
 					
 					if char.image == null:
-						draw_string(char.font,(Vector2(current_line_length/2+size.x/2,0)-(char.offset+total_offset+Vector2(0,char.font.get_ascent(char.size)-char.font.get_descent(char.size))))*Vector2(1,-1),char.char_str,HORIZONTAL_ALIGNMENT_LEFT,-1,char.size,char.color)
+						draw_string(char.font,(Vector2(current_line_length/2,0)-(char.offset+total_offset+Vector2(0,char.font.get_ascent(char.size)-char.font.get_descent(char.size))))*Vector2(1,-1),char.char_str,HORIZONTAL_ALIGNMENT_LEFT,-1,char.size,char.color)
 					else:
-						draw_texture(char.image,(Vector2(current_line_length/2+size.x/2,0)-(char.offset+total_offset))*Vector2(1,-1),char.color) 
+						draw_texture(char.image,(Vector2(current_line_length/2,0)-(char.offset+total_offset))*Vector2(1,-1),char.color) 
 					
 					if char.char_str == """
 """ or (total_offset.x + char.width > size.x and not set_size_to_text_size):
