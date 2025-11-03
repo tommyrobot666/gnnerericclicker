@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ShopItemBuyEvents="*res://scripts/shop/shop_item_buy_events.gd"
-GlobalChat="*res://other projects/textbox(0b2150c)/global_chat.gd"
+GlobalChat="*res://other projects/textbox(2177f88)/global_chat.gd"
 
 [dotnet]
 

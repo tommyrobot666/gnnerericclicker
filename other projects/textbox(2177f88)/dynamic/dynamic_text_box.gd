@@ -20,6 +20,8 @@ var parse_chars:Dictionary[String,Callable] = {} # changes this object and chang
 @export var speed = 0.1
 @export var do_ticking_effects = true
 @export var center_text = false
+@export var set_size_to_text_size = false
+@export var set_size_to_text_size_before_done = false
 var last_delta:float
 var skip_this_parse = false
 var is_this_parse_done = true
@@ -52,7 +54,7 @@ func _notification(what: int) -> void:
 						draw_texture(char.image,(Vector2(current_line_length/2+size.x/2,0)-(char.offset+total_offset))*Vector2(1,-1),char.color) 
 					
 					if char.char_str == """
-""" or total_offset.x + char.width > size.x:
+""" or (total_offset.x + char.width > size.x and not set_size_to_text_size):
 						total_offset.y += char.font.get_ascent(char.size)+char.font.get_descent(char.size)
 						if line_lengths.is_empty():
 							current_line_length = 0
@@ -107,6 +109,24 @@ func _process(delta: float) -> void:
 		queue_redraw()
 
 func parse_string(str:String):
+	if set_size_to_text_size_before_done:
+		var new_size = Vector2.ZERO
+		var current_line = 0
+		var font = SystemFont.new()
+		for cha in str:
+			if cha == """
+""":
+				new_size.y += font.get_ascent(13)+font.get_descent(13)
+				if current_line > new_size.x:
+					new_size.x = current_line
+				current_line = 0
+			else:
+				current_line += font.get_char_size(cha.unicode_at(0), 13).x
+		if current_line > new_size.x:
+			new_size.x = current_line
+		size = new_size
+	
+	
 	chars.clear()
 	is_this_parse_done = false
 	
@@ -166,6 +186,23 @@ func parse_string(str:String):
 	
 	is_this_parse_done = true
 	skip_this_parse = false
+	
+	if set_size_to_text_size:
+		var new_size = Vector2.ZERO
+		var current_line = 0
+		for char in chars:
+			if char.char_str == """
+""":
+				new_size.y += char.font.get_ascent(char.size)+char.font.get_descent(char.size)
+				if current_line > new_size.x:
+					new_size.x = current_line
+				current_line = 0
+			else:
+				current_line += char.width
+		if current_line > new_size.x:
+			new_size.x = current_line
+		size = new_size
+	
 	parse_done.emit()
 
 func add_parse_chars(char:String,effect:Callable):

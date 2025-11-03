@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dl0vk85lhb1ju"]
 
 [ext_resource type="Script" uid="uid://behyr2l7gdpb4" path="res://scripts/shop/shop_item.gd" id="1_3rqce"]
-[ext_resource type="Script" uid="uid://bcnf8gjdoem5s" path="res://other projects/textbox(0b2150c)/dynamic/dynamic_text_box.gd" id="2_35nb3"]
+[ext_resource type="Script" uid="uid://bcnf8gjdoem5s" path="res://other projects/textbox(2177f88)/dynamic/dynamic_text_box.gd" id="2_35nb3"]
 
 [sub_resource type="Gradient" id="Gradient_feb5d"]
 
@@ -33,6 +33,8 @@ layout_mode = 2
 script = ExtResource("2_35nb3")
 text = "Some very good upgrade x 0"
 speed = -1.0
+center_text = true
+set_size_to_text_size = true
 metadata/_custom_type_script = "uid://bcnf8gjdoem5s"
 
 [node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer"]
