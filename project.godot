@@ -15,6 +15,10 @@ run/main_scene="uid://cxeja0273xkff"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ShopItemBuyEvents="*res://scripts/shop/shop_item_buy_events.gd"
+
 [dotnet]
 
 project/assembly_name="GnnerericClicker"

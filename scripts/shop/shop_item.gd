@@ -8,29 +8,31 @@ extends MarginContainer
 
 var icon:Texture2D:
 	set(x):
+		assert(texture_rect != null)
 		icon = x
 		texture_rect.texture = x
 var description:String:
 	set(x):
+		assert(label != null)
 		description = x
 		label.text = x
 var get_amount_bought:IntSupplier
 var cost:String:
 	set(x):
+		assert(cost_l != null)
 		cost = x
 		cost_l.text = cost+" "
-var buy:Callable:
-	set(x):
-		buy = x
-		buy_b.pressed.connect(buy)
+var buy:Callable
+var buy_requirements:BoolSupplier
 var queue_free_after_buy:bool = false
 
 @warning_ignore("shadowed_variable")
-func set_data(description:String, cost:String, icon:Texture2D, buy:Callable, get_amount_bought:IntSupplier = IntSupplier.new(), queue_free_after_buy:bool=false):
+func set_data(description:String, cost:String, icon:Texture2D, buy:Callable, buy_requirements:BoolSupplier, get_amount_bought:IntSupplier = IntSupplier.new(), queue_free_after_buy:bool=false):
 	self.description = description
 	self.cost = cost
 	self.icon = icon
 	self.buy = buy
+	self.buy_requirements = buy_requirements
 	self.get_amount_bought = get_amount_bought
 	self.queue_free_after_buy = queue_free_after_buy
 
@@ -41,5 +43,11 @@ func update_amount_bought():
 		self.label.text = "%s x %d" % [description, amount_bought]
 
 func _on_buy_pressed():
+	if !buy_requirements.get_bool():
+		return
+	buy.call()
 	if queue_free_after_buy:
 		queue_free()
+
+func _ready() -> void:
+	buy_b.pressed.connect(_on_buy_pressed)

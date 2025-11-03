@@ -1,6 +1,6 @@
 extends Container
 
-const ITEMS_SCENE = preload("res://shop_item.tscn")
+const ITEMS_SCENE = preload("res://scenes/shop/shop_item.tscn")
 
 @export var items:ShopItems
 @export var items_parent:Container
@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	var i:int = 0
 	while i < items.items.size():
 		var item:ShopItemsEntry = items.items[i]
-		if !item.requirements_meet():
+		if !item.unlock_requirements_meet():
 			i += 1
 			continue
 		
@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 			item.cost,
 			item.icon,
 			item.get_on_buy(),
+			item.get_is_buy_requirements_meet(),
 			item.get_amount_bought_supplier(),
 			item.one_time
 		)

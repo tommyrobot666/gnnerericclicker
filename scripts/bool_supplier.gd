@@ -1,4 +1,4 @@
-class_name IntSupplier
+class_name BoolSupplier
 extends RefCounted
 
 var f:Callable
@@ -8,12 +8,12 @@ var cache:Variant
 func _init(f:Callable=Callable()) -> void:
 	self.f = f
 
-func get_int() -> int:
+func get_bool() -> bool:
 	cache = f.call()
 	assert(is_valid())
 	return cache
 
-func get_int_or_null() -> Variant:#int?: TODO: update to 4.2 for nullable types
+func get_bool_or_null() -> Variant:#bool?: TODO: update to 4.2 for nullable types
 	cache = f.call()
 	if is_valid():
 		return cache
@@ -21,4 +21,4 @@ func get_int_or_null() -> Variant:#int?: TODO: update to 4.2 for nullable types
 		return null
 
 func is_valid() -> bool:
-	return f != null && f != Callable() && cache is int
+	return f != null && f != Callable() && cache is bool

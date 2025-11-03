@@ -49,6 +49,7 @@ func _ready() -> void:
 	input_event.connect(_on_input_event)
 	
 	lock_rotation = true
+	input_pickable = true
 	
 	color = color
 	gravity = gravity

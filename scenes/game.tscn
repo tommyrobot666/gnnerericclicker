@@ -25,20 +25,23 @@ color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Red" type="RigidBody2D" parent="Node2D"]
-input_pickable = true
-gravity_scale = 250.0
-lock_rotation = true
-script = ExtResource("1_p57ef")
-bounce_spread = 5.115
-show_debug = true
-
 [node name="Walls" type="Node2D" parent="Node2D"]
 script = ExtResource("2_u5sy4")
 top_wall = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Node2D"]
 zoom = Vector2(3.14, 3.14)
+
+[node name="Colors" type="Node2D" parent="Node2D"]
+unique_name_in_owner = true
+
+[node name="Red" type="RigidBody2D" parent="Node2D/Colors"]
+input_pickable = true
+gravity_scale = 250.0
+lock_rotation = true
+script = ExtResource("1_p57ef")
+bounce_spread = 5.115
+show_debug = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
