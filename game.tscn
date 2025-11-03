@@ -1,36 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxeja0273xkff"]
+[gd_scene load_steps=9 format=3 uid="uid://cxeja0273xkff"]
 
 [ext_resource type="Script" uid="uid://8f47nhf40v1" path="res://gen_walls.gd" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://ovpx47jlx30u" path="res://color_bit.gd" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://c4ocgqvic010f" path="res://label.gd" id="3_feb5d"]
 [ext_resource type="Theme" uid="uid://njngowuujv01" path="res://shop_theme.tres" id="4_fc0e3"]
 [ext_resource type="Script" uid="uid://bpkaqhjmnxqb8" path="res://shop.gd" id="5_ryrav"]
-[ext_resource type="Script" uid="uid://drqmnm4703feb" path="res://shop_items_entry.gd" id="6_eow3j"]
-[ext_resource type="PackedScene" uid="uid://dl0vk85lhb1ju" path="res://shop_item.tscn" id="6_ryrav"]
+[ext_resource type="Resource" uid="uid://ohlnpk010e7v" path="res://shop_items.tres" id="6_ryrav"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e2o6t"]
 font_size = 81
 
-[sub_resource type="Gradient" id="Gradient_j5wjh"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_vef74"]
-gradient = SubResource("Gradient_j5wjh")
-
-[sub_resource type="Resource" id="Resource_hve3p"]
-script = ExtResource("6_eow3j")
-icon = SubResource("GradientTexture1D_vef74")
-description = "qqqqqqwwwwwwwwwwwweeeeeeeertrht"
-one_time = true
-cost = "5y"
-on_buy_f_name = "print"
-amount_bought_key = ""
-metadata/_custom_type_script = "uid://drqmnm4703feb"
-
-[sub_resource type="Gradient" id="Gradient_feb5d"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fc0e3"]
-gradient = SubResource("Gradient_feb5d")
-width = 96
+[sub_resource type="LabelSettings" id="LabelSettings_ryrav"]
+font_size = 37
 
 [node name="Game" type="Node"]
 
@@ -84,13 +65,14 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -888.0
-offset_bottom = 398.0
+offset_left = -555.0
+offset_bottom = 506.0
 grow_horizontal = 0
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
 layout_mode = 2
 text = "SHOP"
+label_settings = SubResource("LabelSettings_ryrav")
 horizontal_alignment = 1
 
 [node name="Shop" type="PanelContainer" parent="CanvasLayer/Control/VBoxContainer" node_paths=PackedStringArray("items_parent")]
@@ -98,7 +80,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("4_fc0e3")
 script = ExtResource("5_ryrav")
-items = Array[ExtResource("6_eow3j")]([SubResource("Resource_hve3p")])
+items = ExtResource("6_ryrav")
 items_parent = NodePath("MarginContainer/ScrollContainer/VBoxContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Shop"]
@@ -112,44 +94,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ShopItem" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("6_ryrav")]
-layout_mode = 2
-
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-
-[node name="ShopItem2" type="MarginContainer" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/ShopItem2"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/ShopItem2/PanelContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/ShopItem2/PanelContainer/HBoxContainer"]
-custom_minimum_size = Vector2(96, 64)
-layout_mode = 2
-texture = SubResource("GradientTexture2D_fc0e3")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/ShopItem2/PanelContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/ShopItem2/PanelContainer/HBoxContainer/CenterContainer"]
-layout_mode = 2
-text = "Some very good upgrade"
-horizontal_alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/ShopItem2/PanelContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Cost" type="Label" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/ShopItem2/PanelContainer/HBoxContainer"]
-layout_mode = 2
-text = "12R "
-
-[node name="Buy" type="Button" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/ShopItem2/PanelContainer/HBoxContainer"]
-layout_mode = 2
-text = "BUY"

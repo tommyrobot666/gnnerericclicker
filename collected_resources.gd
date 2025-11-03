@@ -40,4 +40,6 @@ static func gen_color_bit_textures() -> Array[Texture2D]:
 	return output
 
 static func get_amount_bought(key:String) -> int:
-	return 0
+	match key:
+		_:
+			return 0

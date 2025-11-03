@@ -23,17 +23,16 @@ var buy:Callable:
 	set(x):
 		buy = x
 		buy_b.pressed.connect(buy)
-var _queue_free_after_buy:bool = false
+var queue_free_after_buy:bool = false
 
 @warning_ignore("shadowed_variable")
-func set_data(description:String, cost:String, icon:Texture2D, buy:Callable, get_amount_bought:IntSupplier = IntSupplier.new()):
+func set_data(description:String, cost:String, icon:Texture2D, buy:Callable, get_amount_bought:IntSupplier = IntSupplier.new(), queue_free_after_buy:bool=false):
 	self.description = description
 	self.cost = cost
 	self.icon = icon
 	self.buy = buy
 	self.get_amount_bought = get_amount_bought
-	if !get_amount_bought.is_valid():
-		_queue_free_after_buy = true
+	self.queue_free_after_buy = queue_free_after_buy
 
 func update_amount_bought():
 	assert(get_amount_bought != null)
@@ -42,5 +41,5 @@ func update_amount_bought():
 		self.label.text = "%s x %d" % [description, amount_bought]
 
 func _on_buy_pressed():
-	if _queue_free_after_buy:
+	if queue_free_after_buy:
 		queue_free()
