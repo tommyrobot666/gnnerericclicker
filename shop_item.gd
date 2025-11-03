@@ -1,3 +1,4 @@
+class_name ShopItem
 extends MarginContainer
 
 @onready var texture_rect: TextureRect = $PanelContainer/HBoxContainer/TextureRect
@@ -13,7 +14,7 @@ var description:String:
 	set(x):
 		description = x
 		label.text = x
-var get_amount_bought:Callable
+var get_amount_bought:IntSupplier
 var cost:String:
 	set(x):
 		cost = x
@@ -24,23 +25,19 @@ var buy:Callable:
 		buy_b.pressed.connect(buy)
 var _queue_free_after_buy:bool = false
 
-static func null_amount_bought():
-	return null
-
 @warning_ignore("shadowed_variable")
-func set_data(description:String, cost:String, icon:Texture2D, buy:Callable, get_amount_bought:Callable = null_amount_bought):
+func set_data(description:String, cost:String, icon:Texture2D, buy:Callable, get_amount_bought:IntSupplier = IntSupplier.new()):
 	self.description = description
 	self.cost = cost
 	self.icon = icon
 	self.buy = buy
 	self.get_amount_bought = get_amount_bought
-	if get_amount_bought == null_amount_bought:
+	if !get_amount_bought.is_valid():
 		_queue_free_after_buy = true
 
 func update_amount_bought():
-	assert(!(get_amount_bought == null || get_amount_bought == Callable()))
-	
-	var amount_bought:int = get_amount_bought.call()
+	assert(get_amount_bought != null)
+	var amount_bought:int = get_amount_bought.get_int_or_null()
 	if amount_bought != null:
 		self.label.text = "%s x %d" % [description, amount_bought]
 
