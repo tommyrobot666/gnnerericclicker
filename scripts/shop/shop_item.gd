@@ -2,7 +2,7 @@ class_name ShopItem
 extends MarginContainer
 
 @onready var texture_rect: TextureRect = $PanelContainer/HBoxContainer/TextureRect
-@onready var label: Label = $PanelContainer/HBoxContainer/CenterContainer/Label
+@onready var label: DynamicTextBox = $PanelContainer/HBoxContainer/CenterContainer/Label
 @onready var cost_l: Label = $PanelContainer/HBoxContainer/Cost
 @onready var buy_b: Button = $PanelContainer/HBoxContainer/Buy
 
