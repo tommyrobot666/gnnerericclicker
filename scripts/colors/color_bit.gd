@@ -4,13 +4,13 @@ extends RigidBody2D
 
 const MESH_NODE_NAME := "MeshNode"
 
-@export var color:CollectedResources.Colors:
+@export var color:CollectedResources.Types:
 	set(x):
 		color = x
 		
 		var mesh_node = get_node_or_null(MESH_NODE_NAME) as MeshInstance2D
 		if mesh_node != null:
-			mesh_node.texture = CollectedResources.color_textures[color]
+			mesh_node.texture = CollectedResources.type_textures[color]
 @export var size:float = 10
 @export var bounce_force:float = 300
 @export var bounce_spread:float

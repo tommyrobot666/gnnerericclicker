@@ -1,4 +1,4 @@
 extends Label
 
 func _process(delta: float) -> void:
-	text = "red: %d" % CollectedResources.get_color(0)
+	text = "red: %d" % CollectedResources.get_type(0)

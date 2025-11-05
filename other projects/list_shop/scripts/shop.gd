@@ -1,6 +1,6 @@
 extends Container
 
-const ITEMS_SCENE = preload("res://scenes/shop/shop_item.tscn")
+const ITEMS_SCENE = preload("../scenes/shop_item.tscn")
 
 @export var items:ShopItems
 @export var items_parent:Container
