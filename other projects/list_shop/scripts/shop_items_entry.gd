@@ -42,3 +42,12 @@ func get_is_buy_requirements_meet() -> BoolSupplier:
 				return false
 		return true
 	)
+
+static func new_is_buy_requirements_meet(simple_buy_requirement:Dictionary[CollectedResources.Types,int]) -> BoolSupplier:
+	return BoolSupplier.new(func():
+		for type in simple_buy_requirement.keys():
+			var amount_needed:int = simple_buy_requirement.get(type,0)
+			if amount_needed > CollectedResources.get_type(type):
+				return false
+		return true
+	)

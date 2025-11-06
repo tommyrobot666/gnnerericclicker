@@ -45,7 +45,10 @@ func update_amount_bought():
 func _on_buy_pressed():
 	if !buy_requirements.get_bool():
 		return
-	buy.call()
+	var new_cost = buy.call()
+	if new_cost is NewShopItemCost:
+		cost = new_cost.cost
+		buy_requirements = new_cost.buy_requirements
 	if queue_free_after_buy:
 		queue_free()
 
