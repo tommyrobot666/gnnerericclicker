@@ -4,6 +4,7 @@ extends Object
 
 enum Types {
 	RED,
+	TUTORIAL_POINTS,
 }
 
 static var types:Array[int] = zero_array(Types.size())

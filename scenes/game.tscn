@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxeja0273xkff"]
+[gd_scene load_steps=10 format=3 uid="uid://cxeja0273xkff"]
 
 [ext_resource type="Script" uid="uid://ovpx47jlx30u" path="res://scripts/colors/color_bit.gd" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://8f47nhf40v1" path="res://scripts/gen_walls.gd" id="2_u5sy4"]
@@ -6,6 +6,17 @@
 [ext_resource type="Theme" uid="uid://njngowuujv01" path="res://resources/shop/shop_theme.tres" id="4_0tnpc"]
 [ext_resource type="Script" uid="uid://bpkaqhjmnxqb8" path="res://other projects/list_shop/scripts/shop.gd" id="5_vtaks"]
 [ext_resource type="Resource" uid="uid://ohlnpk010e7v" path="res://resources/shop/shop_items.tres" id="6_kvpfn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 9
+border_width_top = 9
+border_width_right = 9
+border_width_bottom = 9
+expand_margin_left = 9.0
+expand_margin_top = 9.0
+expand_margin_right = 9.0
+expand_margin_bottom = 9.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_e2o6t"]
 font_size = 81
@@ -23,6 +34,13 @@ offset_bottom = -499.0
 scale = Vector2(1000, 1000)
 color = Color(0, 0, 0, 1)
 
+[node name="Panel" type="Panel" parent="."]
+offset_left = -100.0
+offset_top = -200.0
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Walls" type="Node2D" parent="Node2D"]
@@ -37,12 +55,10 @@ zoom = Vector2(3.14, 3.14)
 unique_name_in_owner = true
 
 [node name="Red" type="RigidBody2D" parent="Node2D/Colors"]
-input_pickable = true
 gravity_scale = 250.0
 lock_rotation = true
 script = ExtResource("1_p57ef")
-bounce_spread = 5.115
-show_debug = true
+bounce_spread = 6.915
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

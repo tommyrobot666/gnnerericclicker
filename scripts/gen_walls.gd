@@ -24,5 +24,9 @@ func generate():
 		add_child(new_body)
 		new_body.add_child(new_shape)
 
+func _draw() -> void:
+	if Engine.is_editor_hint():
+		pass
+
 func _ready() -> void:
 	generate()
