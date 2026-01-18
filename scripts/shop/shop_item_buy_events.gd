@@ -1,6 +1,8 @@
 class_name ShopItemBuyEvents
 extends Object
 
+const COLOR_SPAWN_EFFECT = preload("res://scenes/effects/color_spawn_effect.tscn")
+
 static var instance = ShopItemBuyEvents.new()
 
 func test():
@@ -34,4 +36,7 @@ func create_and_add_color_bit(
 	new_color_bit.color = color
 	new_color_bit.size = size
 	Engine.get_main_loop().current_scene.get_node("/root/Game/Node2D/Colors").add_child(new_color_bit)
+	var new_spawn_effect = COLOR_SPAWN_EFFECT.instantiate()
+	new_spawn_effect.color = color
+	Engine.get_main_loop().current_scene.get_node("/root/Game/Node2D/Colors").add_child(new_spawn_effect)
 	return new_color_bit

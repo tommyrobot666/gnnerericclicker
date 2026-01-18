@@ -5,6 +5,8 @@ extends Object
 enum Types {
 	RED,
 	TUTORIAL_POINTS,
+	BLUE,
+	YELLOW,
 }
 
 static var types:Array[int] = zero_array(Types.size())
@@ -28,6 +30,12 @@ static func get_color_of_type(type:Types):
 	match type:
 		Types.RED:
 			return Color.RED
+		Types.TUTORIAL_POINTS:
+			return Color.WHITE
+		Types.BLUE:
+			return Color.BLUE
+		Types.YELLOW:
+			return Color.YELLOW
 
 static func gen_color_bit_textures() -> Array[Texture2D]:
 	var output:Array[Texture2D] = []
