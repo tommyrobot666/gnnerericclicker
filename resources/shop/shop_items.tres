@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ShopItems" load_steps=8 format=3 uid="uid://ohlnpk010e7v"]
+[gd_resource type="Resource" script_class="ShopItems" load_steps=9 format=3 uid="uid://ohlnpk010e7v"]
 
 [ext_resource type="Script" uid="uid://drqmnm4703feb" path="res://other projects/list_shop/scripts/shop_items_entry.gd" id="1_ttg7t"]
 [ext_resource type="Script" uid="uid://brqu3tsyutqho" path="res://other projects/list_shop/scripts/shop_items.gd" id="2_jc6yv"]
@@ -45,7 +45,20 @@ simple_buy_requirement = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://drqmnm4703feb"
 
+[sub_resource type="Resource" id="Resource_ttg7t"]
+script = ExtResource("1_ttg7t")
+icon = SubResource("GradientTexture1D_w1iqk")
+description = "Test"
+one_time = false
+dont_show_amount_bought = true
+cost = "5R"
+on_buy_f_name = "buy_red"
+amount_bought_key = ""
+simple_unlock_requirement = Dictionary[int, int]({})
+simple_buy_requirement = Dictionary[int, int]({})
+metadata/_custom_type_script = "uid://drqmnm4703feb"
+
 [resource]
 script = ExtResource("2_jc6yv")
-items = Array[ExtResource("1_ttg7t")]([SubResource("Resource_rorbo"), SubResource("Resource_jc6yv")])
+items = Array[ExtResource("1_ttg7t")]([SubResource("Resource_rorbo"), SubResource("Resource_jc6yv"), SubResource("Resource_ttg7t")])
 metadata/_custom_type_script = "uid://brqu3tsyutqho"

@@ -7,6 +7,8 @@ const TOUCH_AREA_NODE_NAME := "TouchArea"
 const TOUCH_SCALE_MAX := 1.9
 const TOUCH_SCALE_INCREASE := 1.32
 const TOUCH_SCALE_DECREASE := 0.7
+const COLLIDE_EFFECT_SCENE := preload("res://scenes/effects/color_bit_collision_effect.tscn")
+const LIGHT_OCCLUDER_NODE_NAME := "LightOccluder"
 
 @export var color:CollectedResources.Types:
 	set(x):
@@ -64,10 +66,24 @@ func _ready() -> void:
 	touch_area_node.add_child(touch_area_shape)
 	add_child(touch_area_node)
 	
+	var light_occluder:LightOccluder2D = LightOccluder2D.new()
+	var light_occluder_poly:OccluderPolygon2D = OccluderPolygon2D.new()
+	light_occluder.occluder_light_mask = 0
+	light_occluder.occluder = light_occluder_poly
+	var new_light_occluder_poly = PackedVector2Array()
+	for vert:Vector3 in new_mesh.get_mesh_arrays().get(Mesh.ARRAY_VERTEX):
+		if vert.z == 0:
+			new_light_occluder_poly.append(Vector2(vert.x,vert.y))
+	light_occluder_poly.set_polygon(new_light_occluder_poly)
+	add_child(light_occluder)
+	
 	touch_area_node.input_event.connect(_on_input_event)
+	body_entered.connect(_body_entered)
 	
 	lock_rotation = true
 	input_pickable = false
+	contact_monitor = true
+	max_contacts_reported = 10
 	
 	color = color
 	gravity = gravity
@@ -105,3 +121,14 @@ func _draw() -> void:
 	draw_line(Vector2.ZERO, linear_velocity*10, Color.AQUA)
 	draw_circle(Vector2.ZERO, size*touch_scale, Color(Color.BURLYWOOD, 0.3))
 	draw_string(SystemFont.new(),Vector2(100,0),str(touch_scale))
+
+func _body_entered(body:Node):
+	var colorBit:ColorBit = body as ColorBit
+	if !colorBit:
+		return
+	
+	var newEffect = COLLIDE_EFFECT_SCENE.instantiate()
+	newEffect.color = color
+	newEffect.position = Vector2.from_angle(get_angle_to(colorBit.position))*size
+	add_child(newEffect)
+	print("addedEffect")

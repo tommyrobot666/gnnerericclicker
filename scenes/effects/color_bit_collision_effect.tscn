@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://poswtlxc6hbk"]
+
+[ext_resource type="Script" uid="uid://3xonubb8q7wj" path="res://scripts/effects/color_basic_oneshot_effect.gd" id="1_7vwbd"]
+[ext_resource type="Script" uid="uid://bfcjxxhhufyis" path="res://scripts/queue_free.gd" id="2_80r1v"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r105n"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 8.0
+initial_velocity_max = 12.0
+gravity = Vector3(0, 98, 0)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.26
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7vwbd"]
+polygon = PackedVector2Array(0, 1.33333, 2.66667, 0.333333, 3.33333, 1.33333, 1, 1.66667)
+
+[node name="ColorBitCollisionEffect" type="GPUParticles2D"]
+scale = Vector2(7, 7)
+amount = 30
+lifetime = 30.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_r105n")
+script = ExtResource("1_7vwbd")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_7vwbd")
+occluder_light_mask = 0
+script = ExtResource("2_80r1v")
