@@ -9,6 +9,7 @@ const TOUCH_SCALE_INCREASE := 1.32
 const TOUCH_SCALE_DECREASE := 0.7
 const COLLIDE_EFFECT_SCENE := preload("res://scenes/effects/color_bit_collision_effect.tscn")
 const LIGHT_OCCLUDER_NODE_NAME := "LightOccluder"
+const LIGHT_OCCLUDER_SHRINK := .9
 
 @export var color:CollectedResources.Types:
 	set(x):
@@ -73,7 +74,7 @@ func _ready() -> void:
 	var new_light_occluder_poly = PackedVector2Array()
 	for vert:Vector3 in new_mesh.get_mesh_arrays().get(Mesh.ARRAY_VERTEX):
 		if vert.z == 0:
-			new_light_occluder_poly.append(Vector2(vert.x,vert.y))
+			new_light_occluder_poly.append(Vector2(vert.x*LIGHT_OCCLUDER_SHRINK,vert.y*LIGHT_OCCLUDER_SHRINK))
 	light_occluder_poly.set_polygon(new_light_occluder_poly)
 	add_child(light_occluder)
 	
@@ -131,4 +132,3 @@ func _body_entered(body:Node):
 	newEffect.color = color
 	newEffect.position = Vector2.from_angle(get_angle_to(colorBit.position))*size
 	add_child(newEffect)
-	print("addedEffect")
