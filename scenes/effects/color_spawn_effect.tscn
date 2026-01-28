@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpr8ysh6oxbcx"]
+[gd_scene format=3 uid="uid://dpr8ysh6oxbcx"]
 
 [ext_resource type="Script" uid="uid://3xonubb8q7wj" path="res://scripts/effects/color_basic_oneshot_effect.gd" id="1_v5e1s"]
 
@@ -29,7 +29,7 @@ linear_accel_max = 20.0
 scale_curve = SubResource("CurveTexture_v5e1s")
 alpha_curve = SubResource("CurveTexture_w3he7")
 
-[node name="ColorSpawnEffect" type="GPUParticles2D"]
+[node name="ColorSpawnEffect" type="GPUParticles2D" unique_id=1938729728]
 lifetime = 2.0
 speed_scale = 1.3
 explosiveness = 0.63

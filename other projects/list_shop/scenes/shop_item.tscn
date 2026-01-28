@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl0vk85lhb1ju"]
+[gd_scene format=3 uid="uid://dl0vk85lhb1ju"]
 
-[ext_resource type="Script" uid="uid://behyr2l7gdpb4" path="res://list_shop/scripts/shop_item.gd" id="1_3rqce"]
+[ext_resource type="Script" uid="uid://behyr2l7gdpb4" path="res://other projects/list_shop/scripts/shop_item.gd" id="1_3rqce"]
 [ext_resource type="Script" uid="uid://bcnf8gjdoem5s" path="res://other projects/textbox(2177f88)/dynamic/dynamic_text_box.gd" id="2_35nb3"]
 
 [sub_resource type="Gradient" id="Gradient_feb5d"]
@@ -9,26 +9,26 @@
 gradient = SubResource("Gradient_feb5d")
 width = 96
 
-[node name="ShopItem" type="MarginContainer"]
+[node name="ShopItem" type="MarginContainer" unique_id=1918070319]
 script = ExtResource("1_3rqce")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=328945224]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=626871191]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer" unique_id=2045350503]
 custom_minimum_size = Vector2(48, 32)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_fc0e3")
 expand_mode = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/HBoxContainer" unique_id=804898360]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Control" parent="PanelContainer/HBoxContainer/CenterContainer"]
+[node name="Label" type="Control" parent="PanelContainer/HBoxContainer/CenterContainer" unique_id=1299262613]
 layout_mode = 2
 script = ExtResource("2_35nb3")
 text = "Some very good upgrade x 0"
@@ -37,13 +37,13 @@ center_text = true
 set_size_to_text_size = true
 metadata/_custom_type_script = "uid://bcnf8gjdoem5s"
 
-[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer" unique_id=27554676]
 layout_mode = 2
 
-[node name="Cost" type="Label" parent="PanelContainer/HBoxContainer"]
+[node name="Cost" type="Label" parent="PanelContainer/HBoxContainer" unique_id=1627820330]
 layout_mode = 2
 text = "12R "
 
-[node name="Buy" type="Button" parent="PanelContainer/HBoxContainer"]
+[node name="Buy" type="Button" parent="PanelContainer/HBoxContainer" unique_id=143856201]
 layout_mode = 2
 text = "BUY"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ShopItems" load_steps=9 format=3 uid="uid://ohlnpk010e7v"]
+[gd_resource type="Resource" script_class="ShopItems" format=3 uid="uid://ohlnpk010e7v"]
 
 [ext_resource type="Script" uid="uid://drqmnm4703feb" path="res://other projects/list_shop/scripts/shop_items_entry.gd" id="1_ttg7t"]
 [ext_resource type="Script" uid="uid://brqu3tsyutqho" path="res://other projects/list_shop/scripts/shop_items.gd" id="2_jc6yv"]
@@ -12,11 +12,9 @@ gradient = SubResource("Gradient_rorbo")
 script = ExtResource("1_ttg7t")
 icon = SubResource("GradientTexture1D_w1iqk")
 description = "Add another red"
-one_time = false
 dont_show_amount_bought = true
 cost = "5R"
 on_buy_f_name = "buy_red"
-amount_bought_key = ""
 simple_unlock_requirement = Dictionary[int, int]({
 1: 1
 })
@@ -36,7 +34,6 @@ one_time = true
 dont_show_amount_bought = true
 cost = "5R"
 on_buy_f_name = "buy_first_red"
-amount_bought_key = ""
 simple_unlock_requirement = Dictionary[int, int]({
 0: 10
 })
@@ -49,13 +46,9 @@ metadata/_custom_type_script = "uid://drqmnm4703feb"
 script = ExtResource("1_ttg7t")
 icon = SubResource("GradientTexture1D_w1iqk")
 description = "Test"
-one_time = false
 dont_show_amount_bought = true
 cost = "5R"
 on_buy_f_name = "buy_red"
-amount_bought_key = ""
-simple_unlock_requirement = Dictionary[int, int]({})
-simple_buy_requirement = Dictionary[int, int]({})
 metadata/_custom_type_script = "uid://drqmnm4703feb"
 
 [resource]

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="GnnerericClicker"
 run/main_scene="uid://cxeja0273xkff"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
