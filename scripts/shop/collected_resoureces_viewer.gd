@@ -2,6 +2,11 @@ extends Container
 
 @export var enabled_views:Array[CollectedResources.Types]
 @export var text_size:float = 13
+@export var debug_starting_values:Array[int]
+
+func _ready() -> void:
+	for i in range(debug_starting_values.size()):
+		CollectedResources.change_color(i,debug_starting_values.get(i))
 
 func _process(_delta: float) -> void:
 	while enabled_views.size() > get_child_count():

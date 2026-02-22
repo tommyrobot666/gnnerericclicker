@@ -26,9 +26,9 @@ font_size = 37
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=944471436]
 offset_left = -1145.5
-offset_top = -502.0
+offset_top = -786.5
 offset_right = 1145.5
-offset_bottom = 502.0
+offset_bottom = 786.5
 scale = Vector2(1000, 1000)
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_u5sy4")
@@ -118,5 +118,6 @@ theme = ExtResource("4_0tnpc")
 [node name="CollectedResourecesViewer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=1809244230]
 layout_mode = 2
 script = ExtResource("8_gee14")
-enabled_views = Array[int]([0, 1])
+enabled_views = Array[int]([0])
 text_size = 82.0
+debug_starting_values = Array[int]([30])

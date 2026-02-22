@@ -42,16 +42,44 @@ simple_buy_requirement = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://drqmnm4703feb"
 
-[sub_resource type="Resource" id="Resource_ttg7t"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jc6yv"]
+gradient = SubResource("Gradient_rorbo")
+
+[sub_resource type="Resource" id="Resource_5gvs3"]
 script = ExtResource("1_ttg7t")
-icon = SubResource("GradientTexture1D_w1iqk")
-description = "Test"
-dont_show_amount_bought = true
-cost = "5R"
-on_buy_f_name = "buy_red"
+icon = SubResource("GradientTexture1D_jc6yv")
+description = "Compress a bunch of red into a blue dot"
+one_time = true
+cost = "A lot of red"
+on_buy_f_name = "buy_first_blue"
+simple_unlock_requirement = Dictionary[int, int]({
+0: 15,
+1: 1
+})
+simple_buy_requirement = Dictionary[int, int]({
+0: 20
+})
+metadata/_custom_type_script = "uid://drqmnm4703feb"
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g3yd7"]
+gradient = SubResource("Gradient_rorbo")
+
+[sub_resource type="Resource" id="Resource_o66w3"]
+script = ExtResource("1_ttg7t")
+icon = SubResource("GradientTexture1D_g3yd7")
+description = "Create another blue dot"
+cost = "1R 5B"
+on_buy_f_name = "buy_blue"
+simple_unlock_requirement = Dictionary[int, int]({
+1: 2
+})
+simple_buy_requirement = Dictionary[int, int]({
+0: 1,
+2: 5
+})
 metadata/_custom_type_script = "uid://drqmnm4703feb"
 
 [resource]
 script = ExtResource("2_jc6yv")
-items = Array[ExtResource("1_ttg7t")]([SubResource("Resource_rorbo"), SubResource("Resource_jc6yv"), SubResource("Resource_ttg7t")])
+items = Array[ExtResource("1_ttg7t")]([SubResource("Resource_rorbo"), SubResource("Resource_jc6yv"), SubResource("Resource_5gvs3"), SubResource("Resource_o66w3")])
 metadata/_custom_type_script = "uid://brqu3tsyutqho"
