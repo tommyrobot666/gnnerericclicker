@@ -7,7 +7,7 @@ const TOUCH_AREA_NODE_NAME := "TouchArea"
 const TOUCH_SCALE_MAX := 1.9
 const TOUCH_SCALE_INCREASE := 1.32
 const TOUCH_SCALE_DECREASE := 0.7
-const COLLIDE_EFFECT_SCENE := preload("res://scenes/effects/color_bit_collision_effect.tscn")
+const COLLIDE_EFFECT_SCENE := preload("res://scenes/effects/color_bit_collision_effect2.tscn")
 const LIGHT_OCCLUDER_NODE_NAME := "LightOccluder"
 const LIGHT_OCCLUDER_SHRINK := .9
 
@@ -131,4 +131,5 @@ func _body_entered(body:Node):
 	var newEffect = COLLIDE_EFFECT_SCENE.instantiate()
 	newEffect.color = color
 	newEffect.position = Vector2.from_angle(get_angle_to(colorBit.position))*size
+	newEffect.rotation = get_angle_to(colorBit.position)+PI/2
 	add_child(newEffect)

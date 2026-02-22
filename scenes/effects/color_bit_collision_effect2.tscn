@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://poswtlxc6hbk"]
+[gd_scene format=3 uid="uid://bve4a5068nrk"]
 
-[ext_resource type="Script" uid="uid://3xonubb8q7wj" path="res://scripts/effects/color_basic_oneshot_effect.gd" id="1_7vwbd"]
+[ext_resource type="Script" uid="uid://3xonubb8q7wj" path="res://scripts/effects/color_basic_oneshot_effect.gd" id="1_tw4gf"]
 
 [sub_resource type="Curve" id="Curve_80r1v"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -19,11 +19,12 @@ scale_min = 2.0
 scale_max = 2.0
 scale_curve = SubResource("CurveTexture_nu525")
 
-[node name="ColorBitCollisionEffect" type="GPUParticles2D" unique_id=1140538425]
+[node name="ColorBitCollisionEffect2" type="GPUParticles2D" unique_id=1140538425]
 z_index = 1
-amount = 30
+amount = 15
+lifetime = 3.0
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_r105n")
-script = ExtResource("1_7vwbd")
+script = ExtResource("1_tw4gf")
 mix_color = Color(1, 1, 1, 1)
-mix_ratio = 0.7
+mix_ratio = 0.1

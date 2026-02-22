@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cxeja0273xkff"]
 
 [ext_resource type="Script" uid="uid://ovpx47jlx30u" path="res://scripts/colors/color_bit.gd" id="1_p57ef"]
+[ext_resource type="Script" uid="uid://c6hfg0ax3v5yx" path="res://scripts/effects/fill_screen.gd" id="1_u5sy4"]
 [ext_resource type="Script" uid="uid://8f47nhf40v1" path="res://scripts/gen_walls.gd" id="2_u5sy4"]
 [ext_resource type="Script" uid="uid://c4ocgqvic010f" path="res://scripts/temp/label.gd" id="3_gee14"]
 [ext_resource type="Theme" uid="uid://njngowuujv01" path="res://resources/shop/shop_theme.tres" id="4_0tnpc"]
@@ -27,12 +28,13 @@ font_size = 37
 [node name="Game" type="Node" unique_id=912814428]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=944471436]
-offset_left = -500.0
-offset_top = -500.0
-offset_right = -499.0
-offset_bottom = -499.0
+offset_left = -1145.5
+offset_top = -502.0
+offset_right = 1145.5
+offset_bottom = 502.0
 scale = Vector2(1000, 1000)
 color = Color(0, 0, 0, 1)
+script = ExtResource("1_u5sy4")
 
 [node name="Panel" type="Panel" parent="." unique_id=213360620]
 offset_left = -100.0
