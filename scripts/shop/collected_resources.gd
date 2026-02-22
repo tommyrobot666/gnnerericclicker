@@ -52,3 +52,15 @@ static func get_amount_bought(key:String) -> int:
 	match key:
 		_:
 			return 0
+
+
+static func get_name_of_type(type:Types):
+	match type:
+		Types.RED:
+			return "Reds"
+		Types.TUTORIAL_POINTS:
+			return "what?"
+		Types.BLUE:
+			return "Blues"
+		Types.YELLOW:
+			return "Yellows"

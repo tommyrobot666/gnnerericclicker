@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://ovpx47jlx30u" path="res://scripts/colors/color_bit.gd" id="1_p57ef"]
 [ext_resource type="Script" uid="uid://c6hfg0ax3v5yx" path="res://scripts/effects/fill_screen.gd" id="1_u5sy4"]
 [ext_resource type="Script" uid="uid://8f47nhf40v1" path="res://scripts/gen_walls.gd" id="2_u5sy4"]
-[ext_resource type="Script" uid="uid://c4ocgqvic010f" path="res://scripts/temp/label.gd" id="3_gee14"]
 [ext_resource type="Theme" uid="uid://njngowuujv01" path="res://resources/shop/shop_theme.tres" id="4_0tnpc"]
 [ext_resource type="Script" uid="uid://bpkaqhjmnxqb8" path="res://other projects/list_shop/scripts/shop.gd" id="5_vtaks"]
 [ext_resource type="Resource" uid="uid://ohlnpk010e7v" path="res://resources/shop/shop_items.tres" id="6_kvpfn"]
+[ext_resource type="Script" uid="uid://bcq41vkyn2glv" path="res://scripts/shop/collected_resoureces_viewer.gd" id="8_gee14"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -18,9 +18,6 @@ expand_margin_left = 9.0
 expand_margin_top = 9.0
 expand_margin_right = 9.0
 expand_margin_bottom = 9.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_e2o6t"]
-font_size = 81
 
 [sub_resource type="LabelSettings" id="LabelSettings_ryrav"]
 font_size = 37
@@ -75,15 +72,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1665449803]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 69.0
-offset_right = 88.0
-offset_bottom = 92.0
-label_settings = SubResource("LabelSettings_e2o6t")
-script = ExtResource("3_gee14")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=1069052572]
 layout_mode = 1
 anchors_preset = 1
@@ -120,3 +108,15 @@ size_flags_vertical = 3
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1733273726]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1590536839]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("4_0tnpc")
+
+[node name="CollectedResourecesViewer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=1809244230]
+layout_mode = 2
+script = ExtResource("8_gee14")
+enabled_views = Array[int]([0, 1])
+text_size = 82.0
