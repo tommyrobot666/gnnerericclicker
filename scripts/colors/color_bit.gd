@@ -10,6 +10,7 @@ const TOUCH_SCALE_DECREASE := 0.7
 const COLLIDE_EFFECT_SCENE := preload("res://scenes/effects/color_bit_collision_effect2.tscn")
 const LIGHT_OCCLUDER_NODE_NAME := "LightOccluder"
 const LIGHT_OCCLUDER_SHRINK := .9
+const DEFAULT_CLICK_AMOUNT := 1
 
 @export var color:CollectedResources.Types:
 	set(x):
@@ -25,6 +26,10 @@ const LIGHT_OCCLUDER_SHRINK := .9
 	set(x):
 		gravity_scale = x
 		gravity = x
+@export var clicker:bool = false
+@export var click_speed:float
+@export var click_amount:int
+var time_since_last_click:float = 0
 @export var show_debug:bool
 
 var touch_scale:float = 1
@@ -38,7 +43,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 func click():
 	apply_impulse(Vector2.UP.rotated(randf_range(-TAU*(1/bounce_spread), TAU*(1/bounce_spread))) * bounce_force)
-	CollectedResources.change_color(color,1)
+	CollectedResources.change_color(color,DEFAULT_CLICK_AMOUNT)
 	if show_debug:
 		await get_tree().physics_frame
 		print(linear_velocity)
@@ -112,6 +117,24 @@ func _process(delta: float) -> void:
 	var touch_area_node = get_node_or_null(TOUCH_AREA_NODE_NAME)
 	if touch_area_node:
 		touch_area_node.scale = Vector2.ONE * touch_scale
+	
+	autoclicker(delta)
+
+func autoclicker(delta:float):
+	if !clicker:
+		return
+	time_since_last_click += delta
+	if time_since_last_click < click_speed:
+		return
+	time_since_last_click -= click_speed
+	
+	for body in get_colliding_bodies():
+		var bit = body as ColorBit
+		if !bit:
+			continue
+		
+		bit.click()
+		CollectedResources.change_color(bit.color,click_amount-DEFAULT_CLICK_AMOUNT)
 
 func _draw() -> void:
 	if !show_debug:
