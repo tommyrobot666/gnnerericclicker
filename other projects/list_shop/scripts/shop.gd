@@ -1,6 +1,7 @@
 extends Container
 
 const ITEMS_SCENE = preload("../scenes/shop_item.tscn")
+const DESCRIPTION_START = "[cwhite][s16]"
 
 @export var items:ShopItems
 @export var items_parent:Container
@@ -18,7 +19,7 @@ func _process(delta: float) -> void:
 		var item_node:ShopItem = ITEMS_SCENE.instantiate()
 		items_parent.add_child(item_node)
 		item_node.set_data(
-			item.description,
+			DESCRIPTION_START+item.description,
 			item.cost,
 			item.icon,
 			item.get_on_buy(),

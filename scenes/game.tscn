@@ -26,9 +26,9 @@ font_size = 37
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=944471436]
 offset_left = -1145.5
-offset_top = -786.5
+offset_top = -479.0
 offset_right = 1145.5
-offset_bottom = 786.5
+offset_bottom = 479.0
 scale = Vector2(1000, 1000)
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_u5sy4")
@@ -60,9 +60,6 @@ contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_p57ef")
 bounce_spread = 6.915
-clicker = null
-click_speed = null
-click_amount = null
 
 [node name="Autoclicker" type="RigidBody2D" parent="Node2D/Colors" unique_id=769183451]
 gravity_scale = 250.0
@@ -130,7 +127,13 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme = ExtResource("4_0tnpc")
 
-[node name="CollectedResourecesViewer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=1809244230]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/MarginContainer" unique_id=1050054161]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer" unique_id=595203476]
+layout_mode = 2
+
+[node name="CollectedResourecesViewer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer" unique_id=1809244230]
 layout_mode = 2
 script = ExtResource("8_gee14")
 enabled_views = Array[int]([0])

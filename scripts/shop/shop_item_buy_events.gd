@@ -46,7 +46,7 @@ func buy_first_blue():
 	var new_color_bit = create_and_add_color_bit(CollectedResources.Types.BLUE)
 	new_color_bit.bounce_spread = 11.67
 	new_color_bit.gravity = 300
-	Engine.get_main_loop().current_scene.get_node("/root/Game/CanvasLayer/Control/MarginContainer/CollectedResourecesViewer").enable_view(CollectedResources.Types.BLUE)
+	Engine.get_main_loop().current_scene.get_node("/root/Game/CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/CollectedResourecesViewer").enable_view(CollectedResources.Types.BLUE)
 
 func buy_blue():
 	CollectedResources.change_color(CollectedResources.Types.RED,-1)

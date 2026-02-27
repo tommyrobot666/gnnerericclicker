@@ -35,6 +35,8 @@ var time_since_last_click:float = 0
 var touch_scale:float = 1
 var touch_on_this_frame:bool = false
 
+var last_contact_count:int = 0
+
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if !event.is_action_pressed("click"):
 		return
@@ -93,6 +95,9 @@ func _ready() -> void:
 	
 	color = color
 	gravity = gravity
+	
+	apply_impulse(Vector2.from_angle(randf_range(0,2*PI))*(size/2),Vector2.ZERO)
+	
 
 func _process(delta: float) -> void:
 	if show_debug:
@@ -119,6 +124,17 @@ func _process(delta: float) -> void:
 		touch_area_node.scale = Vector2.ONE * touch_scale
 	
 	autoclicker(delta)
+	
+	if last_contact_count==get_contact_count() and get_colliding_bodies().any(func(b)->bool:
+		var bit = b as ColorBit
+		if !bit:
+			return false
+		return almost_same_speed(bit.linear_velocity, linear_velocity)):
+		apply_impulse(Vector2.from_angle(randf_range(0,2*PI))*(size/2),Vector2.ZERO)
+	last_contact_count = get_contact_count()
+
+func almost_same_speed(v1:Vector2,v2:Vector2) -> bool:
+	return v1.length_squared() == v2.length_squared() and v1.angle()-v2.angle() < PI/30
 
 func autoclicker(delta:float):
 	if !clicker:

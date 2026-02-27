@@ -17,6 +17,7 @@ color = Color(0.74902, 0.635294, 0.133333, 1)
 thickness = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7j51"]
+bg_color = Color(0.03122116, 0.031221172, 0.031221142, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
