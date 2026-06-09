@@ -34,7 +34,7 @@ script = ExtResource("2_35nb3")
 text = "Some very good upgrade x 0"
 speed = -1.0
 center_text = true
-set_size_to_text_size = true
+set_min_size_to_text_size = true
 metadata/_custom_type_script = "uid://bcnf8gjdoem5s"
 
 [node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer" unique_id=27554676]

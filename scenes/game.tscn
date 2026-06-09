@@ -26,9 +26,9 @@ font_size = 37
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=944471436]
 offset_left = -1145.5
-offset_top = -479.0
+offset_top = -502.0
 offset_right = 1145.5
-offset_bottom = 479.0
+offset_bottom = 502.0
 scale = Vector2(1000, 1000)
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_u5sy4")
@@ -60,6 +60,7 @@ contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_p57ef")
 bounce_spread = 6.915
+click_allowed_colors = null
 
 [node name="Autoclicker" type="RigidBody2D" parent="Node2D/Colors" unique_id=769183451]
 gravity_scale = 250.0
@@ -72,6 +73,20 @@ bounce_spread = 6.915
 clicker = true
 click_speed = 0.54
 click_amount = 1
+click_allowed_colors = null
+
+[node name="Autoclicker2" type="RigidBody2D" parent="Node2D/Colors" unique_id=308475766]
+gravity_scale = 250.0
+lock_rotation = true
+contact_monitor = true
+max_contacts_reported = 10
+script = ExtResource("1_p57ef")
+color = 1
+bounce_spread = 6.915
+clicker = true
+click_speed = 0.54
+click_amount = 1
+click_allowed_colors = Array[int]([2])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1470385674]
 

@@ -29,6 +29,7 @@ const DEFAULT_CLICK_AMOUNT := 1
 @export var clicker:bool = false
 @export var click_speed:float
 @export var click_amount:int
+@export var click_allowed_colors:Array[CollectedResources.Types]
 var time_since_last_click:float = 0
 @export var show_debug:bool
 
@@ -148,6 +149,9 @@ func autoclicker(delta:float):
 		var bit = body as ColorBit
 		if !bit:
 			continue
+		if click_allowed_colors:
+			if !click_allowed_colors.has(bit.color):
+				continue
 		
 		bit.click()
 		CollectedResources.change_color(bit.color,click_amount-DEFAULT_CLICK_AMOUNT)
