@@ -30,17 +30,22 @@ func test():
 	print("working")
 
 func buy_first_red():
+	CollectedResources.buy_a_color_bit(CollectedResources.BoughtAmounts.RED)
 	CollectedResources.change_color(CollectedResources.Types.RED,-5)
 	CollectedResources.change_color(CollectedResources.Types.TUTORIAL_POINTS,1)
 	var tutorial_ball = Engine.get_main_loop().current_scene.get_node_or_null("/root/Game/Node2D/Colors/Red")
+	var tutorial_ball_pos = tutorial_ball.global_position
 	if tutorial_ball:
 		tutorial_ball.queue_free()
+	var new_color_bit
 	for __ in range(2):
-		var new_color_bit = create_and_add_color_bit()
+		new_color_bit = create_and_add_color_bit()
 		new_color_bit.bounce_spread = 11.67
 		new_color_bit.gravity = 200
+	new_color_bit.global_position = tutorial_ball_pos
 
 func buy_red():
+	CollectedResources.buy_a_color_bit(CollectedResources.BoughtAmounts.RED)
 	CollectedResources.change_color(CollectedResources.Types.RED,-5)
 	var new_color_bit = create_and_add_color_bit()
 	new_color_bit.bounce_spread = 11.67
@@ -48,6 +53,7 @@ func buy_red():
 
 
 func buy_first_blue():
+	CollectedResources.buy_a_color_bit(CollectedResources.BoughtAmounts.BLUE)
 	CollectedResources.change_color(CollectedResources.Types.RED,-20)
 	CollectedResources.change_color(CollectedResources.Types.TUTORIAL_POINTS,1)
 	var new_color_bit = create_and_add_color_bit(CollectedResources.Types.BLUE)
@@ -56,6 +62,7 @@ func buy_first_blue():
 	enable_view(CollectedResources.Types.BLUE)
 
 func buy_blue():
+	CollectedResources.buy_a_color_bit(CollectedResources.BoughtAmounts.BLUE)
 	CollectedResources.change_color(CollectedResources.Types.RED,-1)
 	CollectedResources.change_color(CollectedResources.Types.BLUE,-5)
 	var new_color_bit = create_and_add_color_bit(CollectedResources.Types.BLUE)
@@ -64,16 +71,27 @@ func buy_blue():
 
 
 func buy_yellow():
+	CollectedResources.buy_a_color_bit(CollectedResources.BoughtAmounts.YELLOW)
 	if (!instance.boughtYellow):
 		enable_view(CollectedResources.Types.YELLOW)
 		instance.boughtYellow = true
+	var yellowcost = CollectedResources.get_amount_bought("YELLOW") *5
 	CollectedResources.change_color(CollectedResources.Types.RED,-50)
 	CollectedResources.change_color(CollectedResources.Types.BLUE,-100)
+	CollectedResources.change_color(CollectedResources.Types.YELLOW,-yellowcost +5)
 	var new_color_bit = create_and_add_color_bit(CollectedResources.Types.YELLOW,8)
 	new_color_bit.bounce_spread = 4.485
 	new_color_bit.gravity = 150
+	
+	return NewShopItemCost.new("50R 100B "+str(yellowcost)+"Y",
+	ShopItemsEntry.new_is_buy_requirements_meet({
+		CollectedResources.Types.RED:50,
+		CollectedResources.Types.BLUE:100,
+		CollectedResources.Types.YELLOW:yellowcost,
+	}))
 
 func buy_red_autoclicker():
+	CollectedResources.buy_a_color_bit(CollectedResources.BoughtAmounts.RED_AUTOCLICKER_1)
 	CollectedResources.change_color(CollectedResources.Types.RED,-200)
 	CollectedResources.change_color(CollectedResources.Types.YELLOW,-10)
 	var new_color_bit = create_and_add_color_bit(CollectedResources.Types.RED,23)

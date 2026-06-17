@@ -132,4 +132,4 @@ layout_mode = 2
 script = ExtResource("8_gee14")
 enabled_views = Array[int]([0])
 text_size = 82.0
-debug_starting_values = Array[int]([100, 0, 1000])
+debug_starting_values = Array[int]([1000, 0, 1000, 1000])

@@ -13,9 +13,9 @@
 script = ExtResource("1_ttg7t")
 icon = ExtResource("2_psxmn")
 description = "Add another red"
-dont_show_amount_bought = true
 cost = "5R"
 on_buy_f_name = "buy_red"
+amount_bought_key = "RED"
 simple_unlock_requirement = Dictionary[int, int]({
 1: 1
 })
@@ -62,6 +62,7 @@ icon = ExtResource("5_48uwo")
 description = "Create another blue dot"
 cost = "1R 5B"
 on_buy_f_name = "buy_blue"
+amount_bought_key = "BLUE"
 simple_unlock_requirement = Dictionary[int, int]({
 1: 2
 })
@@ -75,9 +76,9 @@ metadata/_custom_type_script = "uid://drqmnm4703feb"
 script = ExtResource("1_ttg7t")
 icon = ExtResource("6_6o0h7")
 description = "Add a yellow dot"
-dont_show_amount_bought = true
 cost = "50R 100B + Have 100R at least once"
 on_buy_f_name = "buy_yellow"
+amount_bought_key = "YELLOW"
 simple_unlock_requirement = Dictionary[int, int]({
 1: 2,
 2: 10
@@ -93,9 +94,9 @@ metadata/_custom_type_script = "uid://drqmnm4703feb"
 script = ExtResource("1_ttg7t")
 icon = ExtResource("7_vnmx4")
 description = "Create an autoclicker for red"
-dont_show_amount_bought = true
 cost = "200R 10Y"
 on_buy_f_name = "buy_red_autoclicker"
+amount_bought_key = "RED_AUTOCLICKER_1"
 simple_unlock_requirement = Dictionary[int, int]({
 3: 1
 })

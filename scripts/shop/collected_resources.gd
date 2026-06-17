@@ -9,8 +9,17 @@ enum Types {
 	YELLOW,
 }
 
+enum BoughtAmounts {
+	RED,
+	BLUE,
+	YELLOW,
+	RED_AUTOCLICKER_1,
+}
+
 static var types:Array[int] = zero_array(Types.size())
 static var type_textures:Array[Texture2D] = gen_color_bit_textures()
+
+static var bought_amounts:Array[int] = zero_array(BoughtAmounts.size())
 
 static func zero_array(len:int) -> Array[int]:
 	var output:Array[int] = []
@@ -49,10 +58,14 @@ static func gen_color_bit_textures() -> Array[Texture2D]:
 	return output
 
 static func get_amount_bought(key:String) -> int:
+	if BoughtAmounts.keys().has(key):
+		return bought_amounts[BoughtAmounts[key]]
+	
 	match key:
 		_:
 			return 0
-
+static func buy_a_color_bit(bought:BoughtAmounts):
+	bought_amounts[bought] += 1
 
 static func get_name_of_type(type:Types):
 	match type:

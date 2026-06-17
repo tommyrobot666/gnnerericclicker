@@ -51,6 +51,12 @@ func _on_buy_pressed():
 		buy_requirements = new_cost.buy_requirements
 	if queue_free_after_buy:
 		queue_free()
+	else:
+		if (get_amount_bought.f != null && get_amount_bought.f != Callable()):
+			update_amount_bought()
 
 func _ready() -> void:
 	buy_b.pressed.connect(_on_buy_pressed)
+	
+	if (get_amount_bought != null && get_amount_bought.f != null && get_amount_bought.f != Callable()):
+		update_amount_bought()
