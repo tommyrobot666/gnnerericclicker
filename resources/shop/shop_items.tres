@@ -1,16 +1,17 @@
 [gd_resource type="Resource" script_class="ShopItems" format=3 uid="uid://ohlnpk010e7v"]
 
 [ext_resource type="Script" uid="uid://drqmnm4703feb" path="res://other projects/list_shop/scripts/shop_items_entry.gd" id="1_ttg7t"]
+[ext_resource type="Texture2D" uid="uid://cshkskb7ctequ" path="res://assets/shop item icons/first_red.png" id="2_5gvs3"]
 [ext_resource type="Script" uid="uid://brqu3tsyutqho" path="res://other projects/list_shop/scripts/shop_items.gd" id="2_jc6yv"]
-
-[sub_resource type="Gradient" id="Gradient_rorbo"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_w1iqk"]
-gradient = SubResource("Gradient_rorbo")
+[ext_resource type="Texture2D" uid="uid://dejnydnvoqlyd" path="res://assets/shop item icons/new_red.png" id="2_psxmn"]
+[ext_resource type="Texture2D" uid="uid://cf8g43rl2e4eu" path="res://assets/shop item icons/first_blue.png" id="4_fkj7n"]
+[ext_resource type="Texture2D" uid="uid://ckljmmd14che6" path="res://assets/shop item icons/new_blue.png" id="5_48uwo"]
+[ext_resource type="Texture2D" uid="uid://c8a4wo0trkgwn" path="res://assets/shop item icons/new_yellow.png" id="6_6o0h7"]
+[ext_resource type="Texture2D" uid="uid://cjaa1s5ktvvvb" path="res://assets/shop item icons/red_autoclicker.png" id="7_vnmx4"]
 
 [sub_resource type="Resource" id="Resource_rorbo"]
 script = ExtResource("1_ttg7t")
-icon = SubResource("GradientTexture1D_w1iqk")
+icon = ExtResource("2_psxmn")
 description = "Add another red"
 dont_show_amount_bought = true
 cost = "5R"
@@ -23,12 +24,9 @@ simple_buy_requirement = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://drqmnm4703feb"
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ttg7t"]
-gradient = SubResource("Gradient_rorbo")
-
 [sub_resource type="Resource" id="Resource_jc6yv"]
 script = ExtResource("1_ttg7t")
-icon = SubResource("GradientTexture1D_ttg7t")
+icon = ExtResource("2_5gvs3")
 description = "Add a red dot"
 one_time = true
 dont_show_amount_bought = true
@@ -42,12 +40,9 @@ simple_buy_requirement = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://drqmnm4703feb"
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_jc6yv"]
-gradient = SubResource("Gradient_rorbo")
-
 [sub_resource type="Resource" id="Resource_5gvs3"]
 script = ExtResource("1_ttg7t")
-icon = SubResource("GradientTexture1D_jc6yv")
+icon = ExtResource("4_fkj7n")
 description = "Compress a bunch of red into a blue dot"
 one_time = true
 cost = "A lot of red"
@@ -61,12 +56,9 @@ simple_buy_requirement = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://drqmnm4703feb"
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_g3yd7"]
-gradient = SubResource("Gradient_rorbo")
-
 [sub_resource type="Resource" id="Resource_o66w3"]
 script = ExtResource("1_ttg7t")
-icon = SubResource("GradientTexture1D_g3yd7")
+icon = ExtResource("5_48uwo")
 description = "Create another blue dot"
 cost = "1R 5B"
 on_buy_f_name = "buy_blue"
@@ -79,7 +71,41 @@ simple_buy_requirement = Dictionary[int, int]({
 })
 metadata/_custom_type_script = "uid://drqmnm4703feb"
 
+[sub_resource type="Resource" id="Resource_g3yd7"]
+script = ExtResource("1_ttg7t")
+icon = ExtResource("6_6o0h7")
+description = "Add a yellow dot"
+dont_show_amount_bought = true
+cost = "50R 100B + Have 100R at least once"
+on_buy_f_name = "buy_yellow"
+simple_unlock_requirement = Dictionary[int, int]({
+1: 2,
+2: 10
+})
+simple_buy_requirement = Dictionary[int, int]({
+0: 50,
+1: 3,
+2: 100
+})
+metadata/_custom_type_script = "uid://drqmnm4703feb"
+
+[sub_resource type="Resource" id="Resource_ttg7t"]
+script = ExtResource("1_ttg7t")
+icon = ExtResource("7_vnmx4")
+description = "Create an autoclicker for red"
+dont_show_amount_bought = true
+cost = "200R 10Y"
+on_buy_f_name = "buy_red_autoclicker"
+simple_unlock_requirement = Dictionary[int, int]({
+3: 1
+})
+simple_buy_requirement = Dictionary[int, int]({
+0: 200,
+3: 10
+})
+metadata/_custom_type_script = "uid://drqmnm4703feb"
+
 [resource]
 script = ExtResource("2_jc6yv")
-items = Array[ExtResource("1_ttg7t")]([SubResource("Resource_rorbo"), SubResource("Resource_jc6yv"), SubResource("Resource_5gvs3"), SubResource("Resource_o66w3")])
+items = Array[ExtResource("1_ttg7t")]([SubResource("Resource_rorbo"), SubResource("Resource_jc6yv"), SubResource("Resource_5gvs3"), SubResource("Resource_o66w3"), SubResource("Resource_g3yd7"), SubResource("Resource_ttg7t")])
 metadata/_custom_type_script = "uid://brqu3tsyutqho"

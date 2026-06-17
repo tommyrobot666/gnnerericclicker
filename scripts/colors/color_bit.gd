@@ -26,11 +26,13 @@ const DEFAULT_CLICK_AMOUNT := 1
 	set(x):
 		gravity_scale = x
 		gravity = x
+@export_category("clicker")
 @export var clicker:bool = false
 @export var click_speed:float
 @export var click_amount:int
 @export var click_allowed_colors:Array[CollectedResources.Types]
 var time_since_last_click:float = 0
+@export_category("other")
 @export var show_debug:bool
 
 var touch_scale:float = 1

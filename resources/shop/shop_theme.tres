@@ -48,6 +48,7 @@ Button/styles/focus = SubResource("StyleBoxEmpty_puy5r")
 Button/styles/hover = SubResource("StyleBoxEmpty_gow0e")
 Button/styles/normal = SubResource("StyleBoxEmpty_een4j")
 Button/styles/pressed = SubResource("StyleBoxEmpty_qq51f")
+HSeparator/constants/separation = 24
 HSeparator/styles/separator = SubResource("StyleBoxLine_gow0e")
 Label/font_sizes/font_size = 19
 Label/fonts/font = ExtResource("1_puy5r")

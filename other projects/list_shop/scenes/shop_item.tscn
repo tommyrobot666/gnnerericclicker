@@ -19,7 +19,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer" unique_id=2045350503]
-custom_minimum_size = Vector2(48, 32)
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = SubResource("GradientTexture2D_fc0e3")
 expand_mode = 1
@@ -29,11 +29,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Control" parent="PanelContainer/HBoxContainer/CenterContainer" unique_id=1299262613]
+custom_minimum_size = Vector2(176.46875, 0)
 layout_mode = 2
 script = ExtResource("2_35nb3")
 text = "Some very good upgrade x 0"
 speed = -1.0
-center_text = true
 set_min_size_to_text_size = true
 metadata/_custom_type_script = "uid://bcnf8gjdoem5s"
 
