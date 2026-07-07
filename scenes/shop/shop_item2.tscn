@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b2us6it6y7avs"]
+
+[ext_resource type="Script" uid="uid://c3oo0lntbpupn" path="res://scripts/shop/shop_item_2.gd" id="1_sake8"]
+
+[sub_resource type="Gradient" id="Gradient_feb5d"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fc0e3"]
+gradient = SubResource("Gradient_feb5d")
+width = 96
+
+[node name="ShopItem2" type="MarginContainer" unique_id=1918070319]
+script = ExtResource("1_sake8")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=328945224]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=626871191]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer" unique_id=2045350503]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_fc0e3")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/HBoxContainer" unique_id=804898360]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/CenterContainer" unique_id=195096851]
+custom_minimum_size = Vector2(176.46875, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Some very good upgrade x 0"
+fit_content = true
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer" unique_id=27554676]
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="PanelContainer/HBoxContainer" unique_id=1627820330]
+layout_mode = 2
+text = "12R "
+
+[node name="Buy" type="Button" parent="PanelContainer/HBoxContainer" unique_id=143856201]
+layout_mode = 2
+text = "BUY"
