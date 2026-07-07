@@ -1,7 +1,7 @@
 extends Container
 
 const ITEMS_SCENE = preload("../../scenes/shop/shop_item.tscn")
-const DESCRIPTION_START = "[cwhite][s16]"
+const DESCRIPTION_START = "[color=white][font_size=16]"
 
 @export var items:ShopItems
 @export var items_parent:Container

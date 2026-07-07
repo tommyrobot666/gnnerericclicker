@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dl0vk85lhb1ju"]
 
 [ext_resource type="Script" uid="uid://behyr2l7gdpb4" path="res://scripts/shop/shop_item.gd" id="1_3rqce"]
-[ext_resource type="Script" uid="uid://bcnf8gjdoem5s" path="res://other projects/textbox(2177f88)/dynamic/dynamic_text_box.gd" id="2_35nb3"]
 
 [sub_resource type="Gradient" id="Gradient_feb5d"]
 
@@ -28,14 +27,12 @@ expand_mode = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Control" parent="PanelContainer/HBoxContainer/CenterContainer" unique_id=1299262613]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/CenterContainer" unique_id=195096851]
 custom_minimum_size = Vector2(176.46875, 0)
 layout_mode = 2
-script = ExtResource("2_35nb3")
+bbcode_enabled = true
 text = "Some very good upgrade x 0"
-speed = -1.0
-set_min_size_to_text_size = true
-metadata/_custom_type_script = "uid://bcnf8gjdoem5s"
+fit_content = true
 
 [node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer" unique_id=27554676]
 layout_mode = 2

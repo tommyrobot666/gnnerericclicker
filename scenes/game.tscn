@@ -28,9 +28,9 @@ script = ExtResource("1_gee14")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=944471436]
 offset_left = -1120.5
-offset_top = -666.5
+offset_top = -666.0
 offset_right = 1120.5
-offset_bottom = 666.5
+offset_bottom = 666.0
 scale = Vector2(1000, 1000)
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_u5sy4")
