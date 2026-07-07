@@ -16,7 +16,7 @@ description = "Add another red"
 cost = "5R"
 on_buy_f_name = "buy_red"
 amount_bought_key = "RED"
-simple_unlock_requirement = Dictionary[int, int]({
+unlock_requirement = Dictionary[int, int]({
 1: 1
 })
 simple_buy_requirement = Dictionary[int, int]({
@@ -32,7 +32,7 @@ one_time = true
 dont_show_amount_bought = true
 cost = "5R"
 on_buy_f_name = "buy_first_red"
-simple_unlock_requirement = Dictionary[int, int]({
+unlock_requirement = Dictionary[int, int]({
 0: 10
 })
 simple_buy_requirement = Dictionary[int, int]({
@@ -47,7 +47,7 @@ description = "Compress a bunch of red into a blue dot"
 one_time = true
 cost = "A lot of red"
 on_buy_f_name = "buy_first_blue"
-simple_unlock_requirement = Dictionary[int, int]({
+unlock_requirement = Dictionary[int, int]({
 0: 15,
 1: 1
 })
@@ -63,7 +63,7 @@ description = "Create another blue dot"
 cost = "1R 5B"
 on_buy_f_name = "buy_blue"
 amount_bought_key = "BLUE"
-simple_unlock_requirement = Dictionary[int, int]({
+unlock_requirement = Dictionary[int, int]({
 1: 2
 })
 simple_buy_requirement = Dictionary[int, int]({
@@ -79,7 +79,7 @@ description = "Add a yellow dot"
 cost = "50R 100B + Have 100R at least once"
 on_buy_f_name = "buy_yellow"
 amount_bought_key = "YELLOW"
-simple_unlock_requirement = Dictionary[int, int]({
+unlock_requirement = Dictionary[int, int]({
 1: 2,
 2: 10
 })
@@ -97,7 +97,7 @@ description = "Create an autoclicker for red"
 cost = "200R 10Y"
 on_buy_f_name = "buy_red_autoclicker"
 amount_bought_key = "RED_AUTOCLICKER_1"
-simple_unlock_requirement = Dictionary[int, int]({
+unlock_requirement = Dictionary[int, int]({
 3: 1
 })
 simple_buy_requirement = Dictionary[int, int]({

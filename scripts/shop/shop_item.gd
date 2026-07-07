@@ -6,25 +6,27 @@ extends MarginContainer
 @onready var cost_l: Label = $PanelContainer/HBoxContainer/Cost
 @onready var buy_b: Button = $PanelContainer/HBoxContainer/Buy
 
-var icon:Texture2D:
+@export var data:ShopItemsEntry
+
+@export var icon:Texture2D:
 	set(x):
 		assert(texture_rect != null)
 		icon = x
 		texture_rect.texture = x
-var description:String:
+@export var description:String:
 	set(x):
 		assert(label != null)
 		description = x
 		label.text = x
 var get_amount_bought:IntSupplier
-var cost:String:
+@export var cost:String:
 	set(x):
 		assert(cost_l != null)
 		cost = x
 		cost_l.text = cost+" "
 var buy:Callable
 var buy_requirements:BoolSupplier
-var queue_free_after_buy:bool = false
+@export var queue_free_after_buy:bool = false
 
 @warning_ignore("shadowed_variable")
 func set_data(description:String, cost:String, icon:Texture2D, buy:Callable, buy_requirements:BoolSupplier, get_amount_bought:IntSupplier = IntSupplier.new(), queue_free_after_buy:bool=false):

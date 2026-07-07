@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 			continue
 		
 		var item_node:ShopItem = ITEMS_SCENE.instantiate()
+		item_node.data = item
 		items_parent.add_child(item_node)
 		item_node.set_data(
 			DESCRIPTION_START+item.description,

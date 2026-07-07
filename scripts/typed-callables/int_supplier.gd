@@ -2,23 +2,19 @@ class_name IntSupplier
 extends RefCounted
 
 var f:Callable
-# used just in case f is an expencive opperation at the cost of memory
-var cache:Variant 
 
 func _init(f:Callable=Callable()) -> void:
 	self.f = f
 
 func get_int() -> int:
-	cache = f.call()
 	assert(is_valid())
-	return cache
+	return f.call()
 
-func get_int_or_null() -> Variant:#int?: TODO: update to 4.2 for nullable types
-	cache = f.call()
+func get_int_or_null() -> Variant:#int?: TODO: nullable types
 	if is_valid():
-		return cache
+		return f.call()
 	else:
 		return null
 
 func is_valid() -> bool:
-	return f != null && f != Callable() && cache is int
+	return f != null && f != Callable() && f.is_valid()
