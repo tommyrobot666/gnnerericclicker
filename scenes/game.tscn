@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://c6hfg0ax3v5yx" path="res://scripts/effects/fill_screen.gd" id="1_u5sy4"]
 [ext_resource type="Script" uid="uid://8f47nhf40v1" path="res://scripts/gen_walls.gd" id="2_u5sy4"]
 [ext_resource type="Theme" uid="uid://njngowuujv01" path="res://resources/shop/shop_theme.tres" id="4_0tnpc"]
-[ext_resource type="Script" uid="uid://bpkaqhjmnxqb8" path="res://other projects/list_shop/scripts/shop.gd" id="5_vtaks"]
+[ext_resource type="Script" uid="uid://bpkaqhjmnxqb8" path="res://scripts/shop/shop.gd" id="5_vtaks"]
 [ext_resource type="Resource" uid="uid://ohlnpk010e7v" path="res://resources/shop/shop_items.tres" id="6_kvpfn"]
 [ext_resource type="Script" uid="uid://bcq41vkyn2glv" path="res://scripts/shop/collected_resoureces_viewer.gd" id="8_gee14"]
 
@@ -27,10 +27,10 @@ font_size = 37
 script = ExtResource("1_gee14")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=944471436]
-offset_left = -1145.5
-offset_top = -502.0
-offset_right = 1145.5
-offset_bottom = 502.0
+offset_left = -1120.5
+offset_top = -666.5
+offset_right = 1120.5
+offset_bottom = 666.5
 scale = Vector2(1000, 1000)
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_u5sy4")
