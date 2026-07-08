@@ -6,10 +6,12 @@
 [ext_resource type="Script" uid="uid://8f47nhf40v1" path="res://scripts/gen_walls.gd" id="2_u5sy4"]
 [ext_resource type="Theme" uid="uid://njngowuujv01" path="res://resources/shop/shop_theme.tres" id="4_0tnpc"]
 [ext_resource type="Script" uid="uid://bpkaqhjmnxqb8" path="res://scripts/shop/shop.gd" id="5_vtaks"]
-[ext_resource type="Resource" uid="uid://ohlnpk010e7v" path="res://resources/shop/shop_items.tres" id="6_kvpfn"]
-[ext_resource type="PackedScene" uid="uid://b1a07ktc556kh" path="res://scenes/shop/shop_items_group.tscn" id="8_0tnpc"]
+[ext_resource type="Script" uid="uid://drqmnm4703feb" path="res://scripts/shop/shop_items_entry.gd" id="7_vtaks"]
+[ext_resource type="Script" uid="uid://cje6tdnlfcw0" path="res://scripts/shop/shop_items_group.gd" id="8_0tnpc"]
 [ext_resource type="Script" uid="uid://bcq41vkyn2glv" path="res://scripts/shop/collected_resoureces_viewer.gd" id="8_gee14"]
+[ext_resource type="Script" uid="uid://brqu3tsyutqho" path="res://scripts/shop/shop_items.gd" id="8_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://b2us6it6y7avs" path="res://scenes/shop/shop_item2.tscn" id="9_vtaks"]
+[ext_resource type="Script" uid="uid://upteheoybmo8" path="res://scripts/shop/items/first_red.gd" id="11_dinhu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -24,6 +26,10 @@ expand_margin_bottom = 9.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ryrav"]
 font_size = 37
+
+[sub_resource type="Resource" id="Resource_gee14"]
+script = ExtResource("8_kvpfn")
+metadata/_custom_type_script = "uid://brqu3tsyutqho"
 
 [node name="Game" type="Node" unique_id=912814428]
 script = ExtResource("1_gee14")
@@ -99,7 +105,7 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("5_vtaks")
-items = ExtResource("6_kvpfn")
+items = SubResource("Resource_gee14")
 items_parent = NodePath("MarginContainer/ScrollContainer/VBoxContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop" unique_id=1153804598]
@@ -114,18 +120,22 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="GetMoreStartingColors" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer" unique_id=952658960]
+layout_mode = 2
+script = ExtResource("8_0tnpc")
+metadata/_custom_type_script = "uid://cje6tdnlfcw0"
+
+[node name="FirstRed" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/GetMoreStartingColors" unique_id=1918070319 instance=ExtResource("9_vtaks")]
+layout_mode = 2
+script = ExtResource("11_dinhu")
+
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1635668771]
 layout_mode = 2
 
-[node name="ShopItemsGroup" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1111791436 instance=ExtResource("8_0tnpc")]
+[node name="StartingColors" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1560793767]
 layout_mode = 2
-unlock_requirement = Dictionary[int, int]({
-0: 5
-})
-
-[node name="ShopItem2" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/ShopItemsGroup" unique_id=1918070319 instance=ExtResource("9_vtaks")]
-layout_mode = 2
-one_time = true
+script = ExtResource("8_0tnpc")
+metadata/_custom_type_script = "uid://cje6tdnlfcw0"
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1590536839]
 layout_mode = 1

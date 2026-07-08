@@ -1,3 +1,4 @@
+class_name ShopItemsGroup
 extends VBoxContainer
 
 @export var unlock_requirement:Dictionary[CollectedResources.Types,int]
