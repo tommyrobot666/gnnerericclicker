@@ -7,7 +7,9 @@
 [ext_resource type="Theme" uid="uid://njngowuujv01" path="res://resources/shop/shop_theme.tres" id="4_0tnpc"]
 [ext_resource type="Script" uid="uid://bpkaqhjmnxqb8" path="res://scripts/shop/shop.gd" id="5_vtaks"]
 [ext_resource type="Resource" uid="uid://ohlnpk010e7v" path="res://resources/shop/shop_items.tres" id="6_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://b1a07ktc556kh" path="res://scenes/shop/shop_items_group.tscn" id="8_0tnpc"]
 [ext_resource type="Script" uid="uid://bcq41vkyn2glv" path="res://scripts/shop/collected_resoureces_viewer.gd" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://b2us6it6y7avs" path="res://scenes/shop/shop_item2.tscn" id="9_vtaks"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -28,9 +30,9 @@ script = ExtResource("1_gee14")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=944471436]
 offset_left = -1120.5
-offset_top = -786.0
+offset_top = -666.0
 offset_right = 1120.5
-offset_bottom = 786.0
+offset_bottom = 666.0
 scale = Vector2(1000, 1000)
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_u5sy4")
@@ -114,6 +116,16 @@ size_flags_vertical = 3
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1635668771]
 layout_mode = 2
+
+[node name="ShopItemsGroup" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1111791436 instance=ExtResource("8_0tnpc")]
+layout_mode = 2
+unlock_requirement = Dictionary[int, int]({
+0: 5
+})
+
+[node name="ShopItem2" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/ShopItemsGroup" unique_id=1918070319 instance=ExtResource("9_vtaks")]
+layout_mode = 2
+one_time = true
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1590536839]
 layout_mode = 1
