@@ -1,34 +1,38 @@
+@tool
 class_name ShopItem2
 extends MarginContainer
 
 const COLOR_SPAWN_EFFECT = preload("uid://dpr8ysh6oxbcx")
 
-@onready var texture_rect: TextureRect = $PanelContainer/HBoxContainer/TextureRect
-@onready var label: RichTextLabel = $PanelContainer/HBoxContainer/CenterContainer/RichTextLabel
-@onready var cost_l: Label = $PanelContainer/HBoxContainer/Cost
-@onready var buy_b: Button = $PanelContainer/HBoxContainer/Buy
+@export var texture_rect: TextureRect# = $PanelContainer/HBoxContainer/TextureRect
+@export var label: RichTextLabel# = $PanelContainer/HBoxContainer/CenterContainer/RichTextLabel
+@export var cost_l: Label# = $PanelContainer/HBoxContainer/Cost
+@export var buy_b: Button# = $PanelContainer/HBoxContainer/Buy
 
-@onready var colors_spawn_location:Node = Engine.get_main_loop().current_scene.get_node("/root/Game/Node2D/Colors")
-@onready var resource_viewer_location:Container = Engine.get_main_loop().current_scene.get_node("/root/Game/CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/CollectedResourecesViewer")
+@onready var colors_spawn_location:Node = null if Engine.is_editor_hint() else Engine.get_main_loop().current_scene.get_node("/root/Game/Node2D/Colors")
+@onready var resource_viewer_location:Container = null if Engine.is_editor_hint() else Engine.get_main_loop().current_scene.get_node("/root/Game/CanvasLayer/Control/MarginContainer/PanelContainer/MarginContainer/CollectedResourecesViewer")
 
 @export var icon:Texture2D:
 	set(x):
+		#if texture_rect == null: return
 		assert(texture_rect != null)
 		icon = x
 		texture_rect.texture = x
 @export_multiline var description:String:
 	set(x):
+		#if label == null: return
 		assert(label != null)
 		description = x
 		label.text = x
 @export var cost:String:
 	set(x):
+		#if cost_l == null: return
 		assert(cost_l != null)
 		cost = x
 		cost_l.text = cost+" "
 @export var one_time:bool
 @export var show_amount_bought:bool
-@export var amount_bought_key:String
+@export var amount_bought_key:CollectedResources.BoughtAmounts
 @export var unlock_requirement:Dictionary[CollectedResources.Types,int]
 @export var simple_buy_requirement:Dictionary[CollectedResources.Types,int]
 var new_buy_requirement:BoolSupplier
@@ -39,7 +43,7 @@ func on_buy() -> NewShopItemCost:
 
 ## Overrideable
 func get_amount_bought() -> int:
-	return CollectedResources.get_amount_bought(amount_bought_key)
+	return CollectedResources.get_amount_bought_enum(amount_bought_key)
 
 ## Overrideable
 func is_unlock_requirements_meet() -> bool:
@@ -86,7 +90,8 @@ func _on_buy_pressed():
 	update_amount_bought_text()
 
 func _ready() -> void:
-	buy_b.pressed.connect(_on_buy_pressed)
+	if !Engine.is_editor_hint():
+		buy_b.pressed.connect(_on_buy_pressed)
 
 
 

@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://cshkskb7ctequ" path="res://assets/shop item icons/first_red.png" id="16_rysoc"]
 [ext_resource type="Texture2D" uid="uid://cf8g43rl2e4eu" path="res://assets/shop item icons/first_blue.png" id="17_ssvqc"]
 [ext_resource type="Texture2D" uid="uid://cjaa1s5ktvvvb" path="res://assets/shop item icons/red_autoclicker.png" id="18_37s47"]
-[ext_resource type="Script" uid="uid://b6n6j5fnxhy63" path="res://scripts/shop/items/first_blue.gd" id="21_bt5mj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -47,9 +46,9 @@ script = ExtResource("1_gee14")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=944471436]
 offset_left = -1070.0
-offset_top = -666.0
+offset_top = -786.0
 offset_right = 1070.0
-offset_bottom = 666.0
+offset_bottom = 786.0
 scale = Vector2(1000, 1000)
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_u5sy4")
@@ -175,8 +174,7 @@ cost = "50R 100B + Have 100R at least once"
 show_amount_bought = true
 amount_bought_key = 2
 unlock_requirement = Dictionary[int, int]({
-1: 2,
-2: 10
+1: 10
 })
 simple_buy_requirement = Dictionary[int, int]({
 0: 50,
@@ -224,11 +222,12 @@ simple_buy_requirement = Dictionary[int, int]({
 
 [node name="FirstBlue" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/StartingColors" unique_id=2064704014 instance=ExtResource("9_vtaks")]
 layout_mode = 2
-script = ExtResource("21_bt5mj")
 icon = ExtResource("17_ssvqc")
 description = "Compress a bunch of red into a blue dot"
 cost = "A lot of red"
 one_time = true
+show_amount_bought = null
+amount_bought_key = null
 unlock_requirement = Dictionary[int, int]({
 0: 15,
 1: 1

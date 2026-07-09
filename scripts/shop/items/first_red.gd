@@ -1,3 +1,4 @@
+@tool
 extends ShopItem2
 
 @export var tutorial_ball:ColorBit

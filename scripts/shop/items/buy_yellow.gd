@@ -1,3 +1,4 @@
+@tool
 extends ShopItem2
 
 var boughtYellow = false

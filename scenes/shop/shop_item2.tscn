@@ -8,8 +8,12 @@
 gradient = SubResource("Gradient_feb5d")
 width = 96
 
-[node name="ShopItem2" type="MarginContainer" unique_id=1918070319]
+[node name="ShopItem2" type="MarginContainer" unique_id=1918070319 node_paths=PackedStringArray("texture_rect", "label", "cost_l", "buy_b")]
 script = ExtResource("1_sake8")
+texture_rect = NodePath("PanelContainer/HBoxContainer/TextureRect")
+label = NodePath("PanelContainer/HBoxContainer/CenterContainer/RichTextLabel")
+cost_l = NodePath("PanelContainer/HBoxContainer/Cost")
+buy_b = NodePath("PanelContainer/HBoxContainer/Buy")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=328945224]
 layout_mode = 2

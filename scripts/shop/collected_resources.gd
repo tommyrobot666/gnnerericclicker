@@ -64,6 +64,10 @@ static func get_amount_bought(key:String) -> int:
 	match key:
 		_:
 			return 0
+
+static func get_amount_bought_enum(key:BoughtAmounts) -> int:
+	return bought_amounts[key]
+
 static func buy_a_color_bit(bought:BoughtAmounts):
 	bought_amounts[bought] += 1
 
