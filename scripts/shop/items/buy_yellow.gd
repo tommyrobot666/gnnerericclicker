@@ -3,10 +3,15 @@ extends ShopItem2
 
 var boughtYellow = false
 
+func _ready() -> void:
+	cost_l.label_settings = LabelSettings.new()
+	cost_l.label_settings.font_size /= 2
+
 func on_buy() -> NewShopItemCost:
 	CollectedResources.buy_a_color_bit(CollectedResources.BoughtAmounts.YELLOW)
 	if (!boughtYellow):
 		b_enable_view(CollectedResources.Types.YELLOW)
+		cost_l.label_settings = null
 		boughtYellow = true
 	var yellowcost = CollectedResources.get_amount_bought("YELLOW") *5
 	CollectedResources.change_color(CollectedResources.Types.RED,-50)

@@ -15,6 +15,10 @@ run/main_scene="uid://cxeja0273xkff"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="GnnerericClicker"

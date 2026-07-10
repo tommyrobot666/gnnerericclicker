@@ -46,30 +46,31 @@ metadata/_custom_type_script = "uid://brqu3tsyutqho"
 script = ExtResource("1_gee14")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=944471436]
-offset_left = -1070.0
+visible = false
+offset_left = -1070.5
 offset_top = -666.0
-offset_right = 1070.0
+offset_right = 1070.5
 offset_bottom = 666.0
 scale = Vector2(1000, 1000)
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_u5sy4")
 
-[node name="Panel" type="Panel" parent="." unique_id=213360620]
+[node name="Node2D" type="Node2D" parent="." unique_id=821047834]
+
+[node name="Panel" type="Panel" parent="Node2D" unique_id=213360620]
 offset_left = -100.0
 offset_top = -200.0
 offset_right = 100.0
 offset_bottom = 100.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_p57ef")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=821047834]
-
-[node name="Walls" type="Node2D" parent="Node2D" unique_id=381732647]
+[node name="Walls" type="Node2D" parent="Node2D/Panel" unique_id=381732647]
+position = Vector2(100, 200)
 script = ExtResource("2_u5sy4")
 top_wall = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=1809206840]
-position = Vector2(80, 0)
-zoom = Vector2(3.14, 3.14)
+offset = Vector2(200, 0)
 
 [node name="Colors" type="Node2D" parent="Node2D" unique_id=1124988117]
 unique_name_in_owner = true
@@ -131,6 +132,48 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="YellowAutoclickers" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer" unique_id=410721135]
+layout_mode = 2
+script = ExtResource("8_0tnpc")
+metadata/_custom_type_script = "uid://cje6tdnlfcw0"
+
+[node name="BuyYellow" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/YellowAutoclickers" unique_id=1112542772 instance=ExtResource("9_vtaks")]
+layout_mode = 2
+script = ExtResource("12_rysoc")
+icon = ExtResource("16_5newe")
+description = "Add a yellow dot"
+cost = "50R 100B + Have 100R at least once"
+show_amount_bought = true
+amount_bought_key = 2
+unlock_requirement = Dictionary[int, int]({
+1: 2,
+2: 10
+})
+simple_buy_requirement = Dictionary[int, int]({
+0: 50,
+1: 3,
+2: 100
+})
+
+[node name="RedAutoclicker1" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/YellowAutoclickers" unique_id=1918070319 instance=ExtResource("9_vtaks")]
+layout_mode = 2
+script = ExtResource("11_ca42v")
+icon = ExtResource("18_37s47")
+description = "Create an autoclicker for red"
+cost = "200R 10Y"
+show_amount_bought = true
+amount_bought_key = 3
+unlock_requirement = Dictionary[int, int]({
+3: 1
+})
+simple_buy_requirement = Dictionary[int, int]({
+0: 200,
+3: 10
+})
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/YellowAutoclickers" unique_id=1191603295]
+layout_mode = 2
+
 [node name="GetMoreStartingColors" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer" unique_id=952658960]
 layout_mode = 2
 script = ExtResource("8_0tnpc")
@@ -166,40 +209,6 @@ simple_buy_requirement = Dictionary[int, int]({
 2: 5
 })
 
-[node name="BuyYellow" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/GetMoreStartingColors" unique_id=1112542772 instance=ExtResource("9_vtaks")]
-layout_mode = 2
-script = ExtResource("12_rysoc")
-icon = ExtResource("16_5newe")
-description = "Add a yellow dot"
-cost = "50R 100B + Have 100R at least once"
-show_amount_bought = true
-amount_bought_key = 2
-unlock_requirement = Dictionary[int, int]({
-1: 2,
-2: 10
-})
-simple_buy_requirement = Dictionary[int, int]({
-0: 50,
-1: 3,
-2: 100
-})
-
-[node name="RedAutoclicker1" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/GetMoreStartingColors" unique_id=1918070319 instance=ExtResource("9_vtaks")]
-layout_mode = 2
-script = ExtResource("11_ca42v")
-icon = ExtResource("18_37s47")
-description = "Create an autoclicker for red"
-cost = "200R 10Y"
-show_amount_bought = true
-amount_bought_key = 3
-unlock_requirement = Dictionary[int, int]({
-3: 1
-})
-simple_buy_requirement = Dictionary[int, int]({
-0: 200,
-3: 10
-})
-
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/Control/MarginContainer2/VBoxContainer/Shop/MarginContainer/ScrollContainer/VBoxContainer/GetMoreStartingColors" unique_id=1635668771]
 layout_mode = 2
 
@@ -214,6 +223,7 @@ script = ExtResource("11_dinhu")
 tutorial_ball = NodePath("../../../../../../../../../../Node2D/Colors/Red")
 icon = ExtResource("16_rysoc")
 description = "Add a red dot"
+cost = "5R"
 one_time = true
 unlock_requirement = Dictionary[int, int]({
 0: 10
@@ -253,5 +263,5 @@ layout_mode = 2
 layout_mode = 2
 script = ExtResource("8_gee14")
 enabled_views = Array[int]([0])
-text_size = 82.0
+text_size = 41.0
 debug_starting_values = Array[int]([1000, 0, 1000, 1000])
